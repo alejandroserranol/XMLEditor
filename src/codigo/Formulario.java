@@ -16,8 +16,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class Formulario extends javax.swing.JFrame {
     
-    XML_DOM dom = new XML_DOM();
-    public static File fichero = null;
+    DOM gesDOM = new DOM();
 
     /**
      * Creates new form Formulario
@@ -35,45 +34,138 @@ public class Formulario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtSalida = new javax.swing.JTextArea();
-        txtMensaje = new javax.swing.JLabel();
-        btnMostrar = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        jTextAreaSalida = new javax.swing.JTextArea();
+        jLabelMensaje = new javax.swing.JLabel();
+        btnMostrarDOM = new javax.swing.JButton();
+        jBtnMostrarSAX = new javax.swing.JButton();
+        jBtnMostrarJAXB = new javax.swing.JButton();
+        jLabelTitulo = new javax.swing.JLabel();
+        jLabelAutor = new javax.swing.JLabel();
+        jLabelAnno = new javax.swing.JLabel();
+        jTextFieldTitulo = new javax.swing.JTextField();
+        jTextFieldAutor = new javax.swing.JTextField();
+        jTextFieldAnno = new javax.swing.JTextField();
+        jBtnAnnadir = new javax.swing.JButton();
+        jBtnGuardarDOM = new javax.swing.JButton();
+        jLabelTituloAntiguo = new javax.swing.JLabel();
+        jLabelTituloNuevo = new javax.swing.JLabel();
+        jLabelAutorAntiguo = new javax.swing.JLabel();
+        jLabelAutorNuevo = new javax.swing.JLabel();
+        jLabelPublicadoAntiguo = new javax.swing.JLabel();
+        jLabelPublicadoNuevo = new javax.swing.JLabel();
+        jTextFieldTituloAntiguo = new javax.swing.JTextField();
+        jTextFieldTituloNuevo = new javax.swing.JTextField();
+        jTextFielldAutorAntiguo = new javax.swing.JTextField();
+        jTextFieldAutorNuevo = new javax.swing.JTextField();
+        jTextFieldPublicadoAntiguo = new javax.swing.JTextField();
+        jTextFieldPublicadoNuevo = new javax.swing.JTextField();
+        jBtnModificar = new javax.swing.JButton();
+        ficherosXML = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        DOM = new javax.swing.JMenuItem();
+        jBtnDOM = new javax.swing.JMenuItem();
+
+        jLabel6.setText("Título nuevo");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtSalida.setColumns(20);
-        txtSalida.setRows(5);
-        jScrollPane1.setViewportView(txtSalida);
+        jTextAreaSalida.setColumns(20);
+        jTextAreaSalida.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaSalida);
 
-        txtMensaje.setText("Mensaje");
-        txtMensaje.setMaximumSize(new java.awt.Dimension(73, 23));
-        txtMensaje.setMinimumSize(new java.awt.Dimension(73, 23));
-        txtMensaje.setPreferredSize(new java.awt.Dimension(73, 23));
+        jLabelMensaje.setText("<Fichero XML no seleccionado>");
+        jLabelMensaje.setMaximumSize(new java.awt.Dimension(73, 23));
+        jLabelMensaje.setMinimumSize(new java.awt.Dimension(73, 23));
+        jLabelMensaje.setPreferredSize(new java.awt.Dimension(73, 23));
 
-        btnMostrar.setText("Mostrar");
-        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+        btnMostrarDOM.setText("Mostrar contenido DOM");
+        btnMostrarDOM.setEnabled(false);
+        btnMostrarDOM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostrarActionPerformed(evt);
+                btnMostrarDOMActionPerformed(evt);
             }
         });
 
-        jMenu1.setText("File");
-
-        DOM.setText("DOM");
-        DOM.addActionListener(new java.awt.event.ActionListener() {
+        jBtnMostrarSAX.setText("Mostrar contenido SAX");
+        jBtnMostrarSAX.setEnabled(false);
+        jBtnMostrarSAX.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DOMActionPerformed(evt);
+                jBtnMostrarSAXActionPerformed(evt);
             }
         });
-        jMenu1.add(DOM);
 
-        jMenuBar1.add(jMenu1);
+        jBtnMostrarJAXB.setText("Mostrar contenido JAXB");
+        jBtnMostrarJAXB.setEnabled(false);
+        jBtnMostrarJAXB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnMostrarJAXBActionPerformed(evt);
+            }
+        });
 
-        setJMenuBar(jMenuBar1);
+        jLabelTitulo.setText("Título");
+
+        jLabelAutor.setText("Autor");
+
+        jLabelAnno.setText("Publicado en");
+
+        jBtnAnnadir.setText("Añadir");
+        jBtnAnnadir.setEnabled(false);
+        jBtnAnnadir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnAnnadirActionPerformed(evt);
+            }
+        });
+
+        jBtnGuardarDOM.setText("Guardar DOM como salida XML");
+        jBtnGuardarDOM.setEnabled(false);
+        jBtnGuardarDOM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnGuardarDOMActionPerformed(evt);
+            }
+        });
+
+        jLabelTituloAntiguo.setText("Título antiguo");
+
+        jLabelTituloNuevo.setText("Título nuevo");
+
+        jLabelAutorAntiguo.setText("Autor antiguo");
+
+        jLabelAutorNuevo.setText("Autor nuevo");
+
+        jLabelPublicadoAntiguo.setText("Publicado en antiguo");
+
+        jLabelPublicadoNuevo.setText("Publicado en antiguo");
+
+        jTextFielldAutorAntiguo.setEnabled(false);
+
+        jTextFieldAutorNuevo.setEnabled(false);
+
+        jTextFieldPublicadoAntiguo.setEnabled(false);
+
+        jTextFieldPublicadoNuevo.setEnabled(false);
+
+        jBtnModificar.setText("Modificar");
+        jBtnModificar.setEnabled(false);
+        jBtnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnModificarActionPerformed(evt);
+            }
+        });
+
+        jMenu1.setText("Ficheros XML");
+
+        jBtnDOM.setText("Abrir DOM");
+        jBtnDOM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAbrirjBtnDOMActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jBtnDOM);
+
+        ficherosXML.add(jMenu1);
+
+        setJMenuBar(ficherosXML);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,42 +174,195 @@ public class Formulario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabelAnno)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextFieldAnno, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelAutor, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabelTitulo))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextFieldTitulo)
+                                            .addComponent(jTextFieldAutor)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabelPublicadoNuevo)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextFieldPublicadoNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabelTituloNuevo)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jTextFieldTituloNuevo))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabelTituloAntiguo)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jTextFieldTituloAntiguo))
+                                        .addComponent(jBtnGuardarDOM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabelAutorNuevo)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jTextFieldAutorNuevo))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabelAutorAntiguo)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jTextFielldAutorAntiguo))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addGap(0, 0, Short.MAX_VALUE)
+                                            .addComponent(jLabelPublicadoAntiguo)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jTextFieldPublicadoAntiguo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(69, 69, 69)
+                                .addComponent(jBtnAnnadir, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBtnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnMostrarDOM, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnMostrar)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jBtnMostrarSAX, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBtnMostrarJAXB, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(jLabelMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnMostrar)
-                    .addComponent(txtMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                    .addComponent(btnMostrarDOM)
+                    .addComponent(jBtnMostrarSAX)
+                    .addComponent(jBtnMostrarJAXB))
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelTitulo)
+                            .addComponent(jTextFieldTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelAutor)
+                            .addComponent(jTextFieldAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelAnno)
+                            .addComponent(jTextFieldAnno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jBtnAnnadir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBtnGuardarDOM)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelTituloAntiguo)
+                            .addComponent(jTextFieldTituloAntiguo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelTituloNuevo)
+                            .addComponent(jTextFieldTituloNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelAutorAntiguo)
+                            .addComponent(jTextFielldAutorAntiguo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelAutorNuevo)
+                            .addComponent(jTextFieldAutorNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelPublicadoAntiguo)
+                            .addComponent(jTextFieldPublicadoAntiguo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelPublicadoNuevo)
+                            .addComponent(jTextFieldPublicadoNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jBtnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void DOMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DOMActionPerformed
+    private void btnAbrirjBtnDOMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirjBtnDOMActionPerformed
         
-        dom.abrir_XML_DOM(dialogoSeleccionarFichero());
+        File ficheroXML = null;
+        ficheroXML = dialogoSeleccionarFichero();
+            
+        if(ficheroXML == null){
+            this.jLabelMensaje.setText("Fichero no seleccionado.");
+        } else {
+            if(gesDOM.abrir_XML_DOM(ficheroXML)==-1){
+                this.jLabelMensaje.setText("Error al crear el objeto DOM.");
+                this.btnMostrarDOM.setEnabled(false);
+                this.jBtnAnnadir.setEnabled(false);
+                this.jBtnGuardarDOM.setEnabled(false);
+                this.jBtnModificar.setEnabled(false);
+            } else {
+                this.jLabelMensaje.setText("¡Objeto DOM creado!");
+                this.btnMostrarDOM.setEnabled(true);
+                this.jBtnAnnadir.setEnabled(true);
+                this.jBtnGuardarDOM.setEnabled(true);
+                this.jBtnModificar.setEnabled(true);
+            }
+        }
         
-        txtMensaje.setText("DOM creado");
-        
-    }//GEN-LAST:event_DOMActionPerformed
+    }//GEN-LAST:event_btnAbrirjBtnDOMActionPerformed
 
-    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+    private void btnMostrarDOMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarDOMActionPerformed
         
-        txtSalida.setText(dom.recorrer_DOM_y_mostrar());
+        jTextAreaSalida.setText(gesDOM.recorrer_DOM_y_mostrar());
         
-    }//GEN-LAST:event_btnMostrarActionPerformed
+    }//GEN-LAST:event_btnMostrarDOMActionPerformed
+
+    private void jBtnMostrarSAXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMostrarSAXActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnMostrarSAXActionPerformed
+
+    private void jBtnMostrarJAXBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMostrarJAXBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnMostrarJAXBActionPerformed
+
+    private void jBtnAnnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAnnadirActionPerformed
+        
+        if (gesDOM.annadirDom(this.jTextFieldTitulo.getText(), this.jTextFieldAutor.getText(), this.jTextFieldAnno.getText()) == -1){
+            this.jLabelMensaje.setText("Error al añadir el nodo");
+        } else {
+            this.jLabelMensaje.setText("Nodo añadido correctamente.");
+        }
+        
+    }//GEN-LAST:event_jBtnAnnadirActionPerformed
+
+    private void jBtnGuardarDOMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGuardarDOMActionPerformed
+        
+        if(gesDOM.guardar_DOM_como_fichero(dialogoGuardarFichero()) == -1){
+            this.jLabelMensaje.setText("Error al guardar el fichero.");
+        } else {
+            this.jLabelMensaje.setText("Fichero guardado correctamente.");
+        }
+        
+    }//GEN-LAST:event_jBtnGuardarDOMActionPerformed
+
+    private void jBtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnModificarActionPerformed
+        
+        gesDOM.modificar_DOM(jTextFieldTituloAntiguo.getText(), jTextFieldTituloNuevo.getText());
+        
+    }//GEN-LAST:event_jBtnModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,16 +400,43 @@ public class Formulario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem DOM;
-    private javax.swing.JButton btnMostrar;
+    private javax.swing.JButton btnMostrarDOM;
+    private javax.swing.JMenuBar ficherosXML;
+    private javax.swing.JButton jBtnAnnadir;
+    private javax.swing.JMenuItem jBtnDOM;
+    private javax.swing.JButton jBtnGuardarDOM;
+    private javax.swing.JButton jBtnModificar;
+    private javax.swing.JButton jBtnMostrarJAXB;
+    private javax.swing.JButton jBtnMostrarSAX;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabelAnno;
+    private javax.swing.JLabel jLabelAutor;
+    private javax.swing.JLabel jLabelAutorAntiguo;
+    private javax.swing.JLabel jLabelAutorNuevo;
+    private javax.swing.JLabel jLabelMensaje;
+    private javax.swing.JLabel jLabelPublicadoAntiguo;
+    private javax.swing.JLabel jLabelPublicadoNuevo;
+    private javax.swing.JLabel jLabelTitulo;
+    private javax.swing.JLabel jLabelTituloAntiguo;
+    private javax.swing.JLabel jLabelTituloNuevo;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel txtMensaje;
-    private javax.swing.JTextArea txtSalida;
+    private javax.swing.JTextArea jTextAreaSalida;
+    private javax.swing.JTextField jTextFieldAnno;
+    private javax.swing.JTextField jTextFieldAutor;
+    private javax.swing.JTextField jTextFieldAutorNuevo;
+    private javax.swing.JTextField jTextFieldPublicadoAntiguo;
+    private javax.swing.JTextField jTextFieldPublicadoNuevo;
+    private javax.swing.JTextField jTextFieldTitulo;
+    private javax.swing.JTextField jTextFieldTituloAntiguo;
+    private javax.swing.JTextField jTextFieldTituloNuevo;
+    private javax.swing.JTextField jTextFielldAutorAntiguo;
     // End of variables declaration//GEN-END:variables
 
     private File dialogoSeleccionarFichero() {
+        
+        File fichero = null;
+        
         try {
             JFileChooser fco = new JFileChooser();
 
@@ -186,11 +458,46 @@ public class Formulario extends javax.swing.JFrame {
                     JOptionPane.showConfirmDialog(null, "Estensión seleccionada no válida.", "", JOptionPane.PLAIN_MESSAGE);
                 
                 } else {
-                     return fichero;
+                    return fichero;
                 }
             }
         } catch (Exception ex) {
             System.out.println("Fichero no seleccionado.");
+        }
+
+        return null;
+    }
+    
+    private File dialogoGuardarFichero() {
+        
+        File fichero = null;
+        
+        try {
+            JFileChooser fcs = new JFileChooser();
+
+            //Busca evitar abrir ficheros binarios
+            fcs.setFileFilter(new FileNameExtensionFilter("Archivos xml", "xml"));
+
+            fcs.setMultiSelectionEnabled(false);
+            fcs.setDialogType(JFileChooser.SAVE_DIALOG);
+
+            //Si no se produce ningún error seleccion será 0
+            int seleccion = fcs.showSaveDialog(this);
+            if (seleccion == JFileChooser.APPROVE_OPTION) {
+                fichero = fcs.getSelectedFile();
+                String nombre = fichero.getName();
+                String extension = nombre.substring(nombre.lastIndexOf('.') + 1, nombre.length());
+
+                if (!extension.equalsIgnoreCase("xml")) {
+                    
+                    JOptionPane.showConfirmDialog(null, "Estensión seleccionada no válida.", "", JOptionPane.PLAIN_MESSAGE);
+                
+                } else {
+                    return fichero;
+                }
+            }
+        } catch (Exception ex) {
+            System.out.println("Fichero no guardado.");
         }
 
         return null;

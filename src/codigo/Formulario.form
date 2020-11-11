@@ -2,19 +2,24 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
+    <Component class="javax.swing.JLabel" name="jLabel6">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="T&#xed;tulo nuevo"/>
+      </Properties>
+    </Component>
+    <Menu class="javax.swing.JMenuBar" name="ficherosXML">
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="File"/>
+            <Property name="text" type="java.lang.String" value="Ficheros XML"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="DOM">
+            <MenuItem class="javax.swing.JMenuItem" name="jBtnDOM">
               <Properties>
-                <Property name="text" type="java.lang.String" value="DOM"/>
+                <Property name="text" type="java.lang.String" value="Abrir DOM"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DOMActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAbrirjBtnDOMActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -26,7 +31,7 @@
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
   <SyntheticProperties>
-    <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="ficherosXML"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
@@ -45,31 +50,163 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" pref="380" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="txtMensaje" min="-2" pref="46" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnMostrar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane1" min="-2" pref="328" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabelAnno" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jTextFieldAnno" min="-2" pref="126" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabelAutor" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelTitulo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jTextFieldTitulo" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldAutor" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabelPublicadoNuevo" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jTextFieldPublicadoNuevo" min="-2" pref="94" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabelTituloNuevo" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldTituloNuevo" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabelTituloAntiguo" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jTextFieldTituloAntiguo" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="jBtnGuardarDOM" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabelAutorNuevo" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldAutorNuevo" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabelAutorAntiguo" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jTextFielldAutorAntiguo" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <Component id="jLabelPublicadoAntiguo" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jTextFieldPublicadoAntiguo" min="-2" pref="94" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                              <Component id="jBtnAnnadir" min="-2" pref="107" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jBtnModificar" min="-2" pref="107" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="btnMostrarDOM" min="-2" pref="169" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jBtnMostrarSAX" min="-2" pref="169" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jBtnMostrarJAXB" min="-2" pref="169" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jLabelMensaje" min="-2" pref="356" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabelMensaje" min="-2" pref="18" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnMostrar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtMensaje" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnMostrarDOM" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtnMostrarSAX" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtnMostrarJAXB" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="228" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jScrollPane1" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelAutor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldAutor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelAnno" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldAnno" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jBtnAnnadir" min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="jBtnGuardarDOM" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelTituloAntiguo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldTituloAntiguo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelTituloNuevo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldTituloNuevo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelAutorAntiguo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFielldAutorAntiguo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelAutorNuevo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldAutorNuevo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelPublicadoAntiguo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldPublicadoAntiguo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelPublicadoNuevo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldPublicadoNuevo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jBtnModificar" min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -83,7 +220,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="txtSalida">
+        <Component class="javax.swing.JTextArea" name="jTextAreaSalida">
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
@@ -91,9 +228,9 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="txtMensaje">
+    <Component class="javax.swing.JLabel" name="jLabelMensaje">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Mensaje"/>
+        <Property name="text" type="java.lang.String" value="&lt;Fichero XML no seleccionado&gt;"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[73, 23]"/>
         </Property>
@@ -105,12 +242,133 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnMostrar">
+    <Component class="javax.swing.JButton" name="btnMostrarDOM">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Mostrar"/>
+        <Property name="text" type="java.lang.String" value="Mostrar contenido DOM"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMostrarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMostrarDOMActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBtnMostrarSAX">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Mostrar contenido SAX"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnMostrarSAXActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBtnMostrarJAXB">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Mostrar contenido JAXB"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnMostrarJAXBActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelTitulo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="T&#xed;tulo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelAutor">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Autor"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelAnno">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Publicado en"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldTitulo">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldAutor">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldAnno">
+    </Component>
+    <Component class="javax.swing.JButton" name="jBtnAnnadir">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="A&#xf1;adir"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnAnnadirActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBtnGuardarDOM">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Guardar DOM como salida XML"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnGuardarDOMActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelTituloAntiguo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="T&#xed;tulo antiguo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelTituloNuevo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="T&#xed;tulo nuevo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelAutorAntiguo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Autor antiguo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelAutorNuevo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Autor nuevo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelPublicadoAntiguo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Publicado en antiguo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelPublicadoNuevo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Publicado en antiguo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldTituloAntiguo">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldTituloNuevo">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFielldAutorAntiguo">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldAutorNuevo">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldPublicadoAntiguo">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldPublicadoNuevo">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBtnModificar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Modificar"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnModificarActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
