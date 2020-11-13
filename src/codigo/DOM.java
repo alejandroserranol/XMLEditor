@@ -106,7 +106,7 @@ public class DOM {
 
         return datos;
     }
-    
+    /*
     public int modificar_DOM(String _tituloAntiguo, String _tituloNuevo) {
 
         try {
@@ -132,7 +132,7 @@ public class DOM {
                 System.out.println(node.getNodeValue());
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     //Es un nodo libro
-                    /*
+                    
                     datos_nodo = procesarLibro(node);
                     
                     for(int j=0; j<datos_nodo.length; j++){
@@ -146,7 +146,7 @@ public class DOM {
                             node.replaceChild(ntituloNuevo, hijoNode);
                         }
                     }
-                    */
+                    
                     if(hijoNode.getFirstChild().getNodeValue() == _tituloAntiguo){
                         System.out.println(node.getNodeValue());
                         System.out.println(hijoNode.getNodeValue());
@@ -163,7 +163,7 @@ public class DOM {
             return -1;
         }
     }
-
+    */
     public int annadirDom(String _titulo, String _autor, String _anno) {
 
         try {
@@ -209,6 +209,43 @@ public class DOM {
             serializer.serialize(doc);
             return 0;
         } catch (Exception e) {
+            return -1;
+        }
+    }
+    
+    public int modificar_DOM(String _tituloAntiguo, String _tituloNuevo) {
+        
+        try{
+            Node nodoLibro = null;
+            Node NodoHijoLibro = null;
+            Node NodoHijoLibro_text = null;
+            //Node nodoHijoLibro;
+            //nodo libros
+            Node raiz = doc.getFirstChild();
+            //todos los nodos libro en una lista
+            NodeList nodelist = raiz.getChildNodes();
+            
+            System.out.println(raiz.getNodeType() + " nodo libros");
+            
+            //recorre la lista de nodos libro
+            for(int i=0; i<nodelist.getLength(); i++){
+                //Cada uno de los libros (nodo libro)
+                nodoLibro = nodelist.item(i);
+                NodoHijoLibro = nodoLibro.getFirstChild();
+                NodoHijoLibro_text = NodoHijoLibro.getFirstChild();
+                //titulo || autor
+                //nodoHijoLibro = nodoLibro.getFirstChild();
+                System.out.println(nodoLibro.getNodeType() + " nodo libro");
+                System.out.println(NodoHijoLibro.getNodeType() + " nodo titulo || autor");
+                System.out.println(NodoHijoLibro_text.getNodeType() + " nodo texro");
+                
+                
+            }
+            
+            
+            
+            return 0;
+        } catch(Exception e) {
             return -1;
         }
     }
