@@ -214,32 +214,42 @@ public class DOM {
     }
     
     public int modificar_DOM(String _tituloAntiguo, String _tituloNuevo) {
-        
+        //getNodeName
         try{
-            Node nodoLibro = null;
-            Node NodoHijoLibro = null;
-            Node NodoHijoLibro_text = null;
             //Node nodoHijoLibro;
             //nodo libros
             Node raiz = doc.getFirstChild();
-            //todos los nodos libro en una lista
-            NodeList nodelist = raiz.getChildNodes();
             
-            System.out.println(raiz.getNodeType() + " nodo libros");
+            //System.out.println(raiz.getNodeType() + " " + raiz.getNodeName());
+            
+            //todos los nodos libro en una lista
+            NodeList nodeListLibro = raiz.getChildNodes();
+            Node nodeLibro;
+            
+            //Lo utilizo para guardar el texto nuevo en un nodo
+            Node ntituloNuevo = doc.createElement("Titulo"); //
+            Node ntituloNuevo_text = doc.createTextNode(_tituloNuevo);
+            ntituloNuevo.appendChild(ntituloNuevo_text);
+            
             
             //recorre la lista de nodos libro
-            for(int i=0; i<nodelist.getLength(); i++){
-                //Cada uno de los libros (nodo libro)
-                nodoLibro = nodelist.item(i);
-                NodoHijoLibro = nodoLibro.getFirstChild();
-                NodoHijoLibro_text = NodoHijoLibro.getFirstChild();
-                //titulo || autor
-                //nodoHijoLibro = nodoLibro.getFirstChild();
-                System.out.println(nodoLibro.getNodeType() + " nodo libro");
-                System.out.println(NodoHijoLibro.getNodeType() + " nodo titulo || autor");
-                System.out.println(NodoHijoLibro_text.getNodeType() + " nodo texro");
-                
-                
+            for(int i=0; i<nodeListLibro.getLength(); i++){
+                    //Cada uno de los libros (nodo libro)
+                    nodeLibro = nodeListLibro.item(i);
+                    
+                    NodeList nodeListHijoLibro = nodeLibro.getChildNodes();
+                    
+                    for(int j=0; j<nodeListHijoLibro.getLength(); j++){
+                        Node ntemp = nodeListHijoLibro.item(j);
+                        
+                        if(ntemp.getNodeType() == Node.ELEMENT_NODE && ntemp.getNodeName() == "Titulo"){
+                            
+                            if (ntemp.getChildNodes().item(0).getNodeValue().equals(_tituloAntiguo)){
+                                    System.out.println(ntemp.getChildNodes().item(0).getNodeValue());
+                                    nodeLibro.replaceChild(ntituloNuevo, nodeListHijoLibro.item(j));
+                                }
+                        }
+                    }
             }
             
             
