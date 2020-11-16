@@ -29,6 +29,10 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="resizable" type="boolean" value="false"/>
+    <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[581, 513]"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="ficherosXML"/>
@@ -105,7 +109,7 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabelAutorAntiguo" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jTextFielldAutorAntiguo" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldAutorAntiguo" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -185,7 +189,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelAutorAntiguo" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFielldAutorAntiguo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldAutorAntiguo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -313,54 +317,42 @@
         <Property name="text" type="java.lang.String" value="T&#xed;tulo antiguo"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldTituloAntiguo">
+    </Component>
     <Component class="javax.swing.JLabel" name="jLabelTituloNuevo">
       <Properties>
         <Property name="text" type="java.lang.String" value="T&#xed;tulo nuevo"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldTituloNuevo">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelAutorAntiguo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Autor antiguo"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldAutorAntiguo">
+    </Component>
     <Component class="javax.swing.JLabel" name="jLabelAutorNuevo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Autor nuevo"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldAutorNuevo">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelPublicadoAntiguo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Publicado en antiguo"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldPublicadoAntiguo">
+    </Component>
     <Component class="javax.swing.JLabel" name="jLabelPublicadoNuevo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Publicado en antiguo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldTituloAntiguo">
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldTituloNuevo">
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFielldAutorAntiguo">
-      <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldAutorNuevo">
-      <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldPublicadoAntiguo">
-      <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldPublicadoNuevo">
-      <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jBtnModificar">
       <Properties>

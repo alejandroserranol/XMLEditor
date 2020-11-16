@@ -50,16 +50,16 @@ public class Formulario extends javax.swing.JFrame {
         jBtnAnnadir = new javax.swing.JButton();
         jBtnGuardarDOM = new javax.swing.JButton();
         jLabelTituloAntiguo = new javax.swing.JLabel();
-        jLabelTituloNuevo = new javax.swing.JLabel();
-        jLabelAutorAntiguo = new javax.swing.JLabel();
-        jLabelAutorNuevo = new javax.swing.JLabel();
-        jLabelPublicadoAntiguo = new javax.swing.JLabel();
-        jLabelPublicadoNuevo = new javax.swing.JLabel();
         jTextFieldTituloAntiguo = new javax.swing.JTextField();
+        jLabelTituloNuevo = new javax.swing.JLabel();
         jTextFieldTituloNuevo = new javax.swing.JTextField();
-        jTextFielldAutorAntiguo = new javax.swing.JTextField();
+        jLabelAutorAntiguo = new javax.swing.JLabel();
+        jTextFieldAutorAntiguo = new javax.swing.JTextField();
+        jLabelAutorNuevo = new javax.swing.JLabel();
         jTextFieldAutorNuevo = new javax.swing.JTextField();
+        jLabelPublicadoAntiguo = new javax.swing.JLabel();
         jTextFieldPublicadoAntiguo = new javax.swing.JTextField();
+        jLabelPublicadoNuevo = new javax.swing.JLabel();
         jTextFieldPublicadoNuevo = new javax.swing.JTextField();
         jBtnModificar = new javax.swing.JButton();
         ficherosXML = new javax.swing.JMenuBar();
@@ -69,6 +69,8 @@ public class Formulario extends javax.swing.JFrame {
         jLabel6.setText("Título nuevo");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        setSize(new java.awt.Dimension(581, 513));
 
         jTextAreaSalida.setColumns(20);
         jTextAreaSalida.setRows(5);
@@ -136,14 +138,6 @@ public class Formulario extends javax.swing.JFrame {
         jLabelPublicadoAntiguo.setText("Publicado en antiguo");
 
         jLabelPublicadoNuevo.setText("Publicado en antiguo");
-
-        jTextFielldAutorAntiguo.setEnabled(false);
-
-        jTextFieldAutorNuevo.setEnabled(false);
-
-        jTextFieldPublicadoAntiguo.setEnabled(false);
-
-        jTextFieldPublicadoNuevo.setEnabled(false);
 
         jBtnModificar.setText("Modificar");
         jBtnModificar.setEnabled(false);
@@ -216,7 +210,7 @@ public class Formulario extends javax.swing.JFrame {
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(jLabelAutorAntiguo)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jTextFielldAutorAntiguo))
+                                            .addComponent(jTextFieldAutorAntiguo))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                             .addGap(0, 0, Short.MAX_VALUE)
                                             .addComponent(jLabelPublicadoAntiguo)
@@ -277,7 +271,7 @@ public class Formulario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelAutorAntiguo)
-                            .addComponent(jTextFielldAutorAntiguo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldAutorAntiguo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelAutorNuevo)
@@ -300,10 +294,10 @@ public class Formulario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAbrirjBtnDOMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirjBtnDOMActionPerformed
-        
+
         File ficheroXML = null;
         ficheroXML = dialogoSeleccionarFichero();
-            
+
         if(ficheroXML == null){
             this.jLabelMensaje.setText("Fichero no seleccionado.");
         } else {
@@ -321,48 +315,46 @@ public class Formulario extends javax.swing.JFrame {
                 this.jBtnModificar.setEnabled(true);
             }
         }
-        
     }//GEN-LAST:event_btnAbrirjBtnDOMActionPerformed
 
-    private void btnMostrarDOMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarDOMActionPerformed
-        
-        jTextAreaSalida.setText(gesDOM.recorrer_DOM_y_mostrar());
-        
-    }//GEN-LAST:event_btnMostrarDOMActionPerformed
+    private void jBtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnModificarActionPerformed
 
-    private void jBtnMostrarSAXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMostrarSAXActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBtnMostrarSAXActionPerformed
-
-    private void jBtnMostrarJAXBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMostrarJAXBActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBtnMostrarJAXBActionPerformed
-
-    private void jBtnAnnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAnnadirActionPerformed
-        
-        if (gesDOM.annadirDom(this.jTextFieldTitulo.getText(), this.jTextFieldAutor.getText(), this.jTextFieldAnno.getText()) == -1){
-            this.jLabelMensaje.setText("Error al añadir el nodo");
-        } else {
-            this.jLabelMensaje.setText("Nodo añadido correctamente.");
-        }
-        
-    }//GEN-LAST:event_jBtnAnnadirActionPerformed
+        gesDOM.modificar_DOM(jTextFieldTituloAntiguo.getText(), jTextFieldTituloNuevo.getText());
+                            //,jTextFieldAutorAntiguo.getText(), jTextFieldAutorNuevo.getText(),
+                            //jTextFieldPublicadoAntiguo.getText(), jTextFieldPublicadoNuevo.getText());
+    }//GEN-LAST:event_jBtnModificarActionPerformed
 
     private void jBtnGuardarDOMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGuardarDOMActionPerformed
-        
+
         if(gesDOM.guardar_DOM_como_fichero(dialogoGuardarFichero()) == -1){
             this.jLabelMensaje.setText("Error al guardar el fichero.");
         } else {
             this.jLabelMensaje.setText("Fichero guardado correctamente.");
         }
-        
     }//GEN-LAST:event_jBtnGuardarDOMActionPerformed
 
-    private void jBtnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnModificarActionPerformed
+    private void jBtnAnnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAnnadirActionPerformed
+
+        if (gesDOM.annadirDom(this.jTextFieldTitulo.getText(), this.jTextFieldAutor.getText(), this.jTextFieldAnno.getText()) == -1){
+            this.jLabelMensaje.setText("Error al añadir el nodo");
+        } else {
+            this.jLabelMensaje.setText("Nodo añadido correctamente.");
+        }
+    }//GEN-LAST:event_jBtnAnnadirActionPerformed
+
+    private void jBtnMostrarJAXBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMostrarJAXBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnMostrarJAXBActionPerformed
+
+    private void jBtnMostrarSAXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMostrarSAXActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnMostrarSAXActionPerformed
+
+    private void btnMostrarDOMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarDOMActionPerformed
+
+        jTextAreaSalida.setText(gesDOM.recorrer_DOM_y_mostrar());
         
-        gesDOM.modificar_DOM(jTextFieldTituloAntiguo.getText(), jTextFieldTituloNuevo.getText());
-        
-    }//GEN-LAST:event_jBtnModificarActionPerformed
+    }//GEN-LAST:event_btnMostrarDOMActionPerformed
 
     /**
      * @param args the command line arguments
@@ -424,13 +416,13 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextAreaSalida;
     private javax.swing.JTextField jTextFieldAnno;
     private javax.swing.JTextField jTextFieldAutor;
+    private javax.swing.JTextField jTextFieldAutorAntiguo;
     private javax.swing.JTextField jTextFieldAutorNuevo;
     private javax.swing.JTextField jTextFieldPublicadoAntiguo;
     private javax.swing.JTextField jTextFieldPublicadoNuevo;
     private javax.swing.JTextField jTextFieldTitulo;
     private javax.swing.JTextField jTextFieldTituloAntiguo;
     private javax.swing.JTextField jTextFieldTituloNuevo;
-    private javax.swing.JTextField jTextFielldAutorAntiguo;
     // End of variables declaration//GEN-END:variables
 
     private File dialogoSeleccionarFichero() {

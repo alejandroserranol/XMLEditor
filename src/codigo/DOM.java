@@ -106,64 +106,7 @@ public class DOM {
 
         return datos;
     }
-    /*
-    public int modificar_DOM(String _tituloAntiguo, String _tituloNuevo) {
 
-        try {
-            Node node;
-            String datos_nodo[] = null;
-            
-            //Lo utilizo para guardar el texto nuevo en un nodo
-            Node ntituloNuevo = doc.createElement("Titulo"); //
-            Node ntituloNuevo_text = doc.createTextNode(_tituloNuevo);
-            ntituloNuevo.appendChild(ntituloNuevo_text);
-            
-            Node hijoNode;
-            
-            //Obtiene el primer nodo del DOM (primer hijo).
-            Node raiz = doc.getFirstChild();
-
-            //Obtiene una lista de nodos con todos los nodos hijo del raiz
-            NodeList nodeList = raiz.getChildNodes();
-
-            for (int i = 0; i < nodeList.getLength(); i++) {
-                node = nodeList.item(i); //libro
-                hijoNode = node.getFirstChild(); //titulo
-                System.out.println(node.getNodeValue());
-                if (node.getNodeType() == Node.ELEMENT_NODE) {
-                    //Es un nodo libro
-                    
-                    datos_nodo = procesarLibro(node);
-                    
-                    for(int j=0; j<datos_nodo.length; j++){
-                        if(datos_nodo[j].equals(_tituloAntiguo)){
-                            System.out.println("Título encontrado.");
-                            //System.out.println(ntituloNuevo.getNodeName());
-                            //System.out.println(ntituloNuevo_text.getNodeName());
-                            //System.out.println(hijoNode.getNodeName());
-                            System.out.println(datos_nodo[j] +"\n");
-                            
-                            node.replaceChild(ntituloNuevo, hijoNode);
-                        }
-                    }
-                    
-                    if(hijoNode.getFirstChild().getNodeValue() == _tituloAntiguo){
-                        System.out.println(node.getNodeValue());
-                        System.out.println(hijoNode.getNodeValue());
-                        System.out.println(ntituloNuevo.getNodeValue());
-                        System.out.println(ntituloNuevo_text.getNodeValue());
-                        
-                        node.replaceChild(ntituloNuevo, hijoNode);
-                    }
-                }
-            }
-
-            return 0;
-        } catch (Exception e) {
-            return -1;
-        }
-    }
-    */
     public int annadirDom(String _titulo, String _autor, String _anno) {
 
         try {
@@ -212,50 +155,46 @@ public class DOM {
             return -1;
         }
     }
-    
+
     public int modificar_DOM(String _tituloAntiguo, String _tituloNuevo) {
         //getNodeName
-        try{
+        try {
             //Node nodoHijoLibro;
             //nodo libros
             Node raiz = doc.getFirstChild();
-            
+
             //System.out.println(raiz.getNodeType() + " " + raiz.getNodeName());
-            
             //todos los nodos libro en una lista
             NodeList nodeListLibro = raiz.getChildNodes();
             Node nodeLibro;
-            
+
             //Lo utilizo para guardar el texto nuevo en un nodo
             Node ntituloNuevo = doc.createElement("Titulo"); //
             Node ntituloNuevo_text = doc.createTextNode(_tituloNuevo);
             ntituloNuevo.appendChild(ntituloNuevo_text);
-            
-            
+
             //recorre la lista de nodos libro
-            for(int i=0; i<nodeListLibro.getLength(); i++){
-                    //Cada uno de los libros (nodo libro)
-                    nodeLibro = nodeListLibro.item(i);
-                    
-                    NodeList nodeListHijoLibro = nodeLibro.getChildNodes();
-                    
-                    for(int j=0; j<nodeListHijoLibro.getLength(); j++){
-                        Node ntemp = nodeListHijoLibro.item(j);
-                        
-                        if(ntemp.getNodeType() == Node.ELEMENT_NODE && ntemp.getNodeName() == "Titulo"){
-                            
-                            if (ntemp.getChildNodes().item(0).getNodeValue().equals(_tituloAntiguo)){
-                                    System.out.println(ntemp.getChildNodes().item(0).getNodeValue());
-                                    nodeLibro.replaceChild(ntituloNuevo, nodeListHijoLibro.item(j));
-                                }
+            for (int i = 0; i < nodeListLibro.getLength(); i++) {
+                //Cada uno de los libros (nodo libro)
+                nodeLibro = nodeListLibro.item(i);
+
+                NodeList nodeListHijoLibro = nodeLibro.getChildNodes();
+
+                for (int j = 0; j < nodeListHijoLibro.getLength(); j++) {
+                    Node ntemp = nodeListHijoLibro.item(j);
+
+                    if (ntemp.getNodeType() == Node.ELEMENT_NODE && ntemp.getNodeName() == "Titulo") {
+
+                        if (ntemp.getChildNodes().item(0).getNodeValue().equals(_tituloAntiguo)) {
+                            System.out.println(ntemp.getChildNodes().item(0).getNodeValue());
+                            nodeLibro.replaceChild(ntituloNuevo, nodeListHijoLibro.item(j));
                         }
                     }
+                }
             }
-            
-            
-            
+
             return 0;
-        } catch(Exception e) {
+        } catch (Exception e) {
             return -1;
         }
     }
