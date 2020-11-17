@@ -65,16 +65,16 @@ class ManejadorSAX extends DefaultHandler {
     public void startElement(String uri, String localName, String qName, Attributes attributes)
             throws SAXException {
         if (qName.equals("Libros")) {
-            cadena_resultado += "Se van a mostrar los libros de este documento\n************************************************\n";
+            cadena_resultado =  cadena_resultado + "Se van a mostrar los libros de este documento\n************************************************\n";
         } else if (qName.equals("Libro")) {
-            cadena_resultado += "Libro " + numLibro + "\n----------------------------------\n";
+            cadena_resultado =  cadena_resultado + "Libro " + numLibro + "\n----------------------------------\n";
             numLibro++;
-            cadena_resultado += "Publicado en: "
+            cadena_resultado =  cadena_resultado + "Publicado en: "
                     + attributes.getValue(attributes.getQName(0).trim());
         } else if (qName.equals("Titulo")) {
-            cadena_resultado += "El título es: ".trim();
+            cadena_resultado =  cadena_resultado + "El título es: ".trim();
         } else if (qName.equals("Autor")) {
-            cadena_resultado += "El autor es: ".trim();
+            cadena_resultado =  cadena_resultado + "El autor es: ".trim();
         }
 
     }
@@ -83,9 +83,9 @@ class ManejadorSAX extends DefaultHandler {
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
         for (int i = start; i < length + start; i++) {
-            cadena_resultado += ch[i];
+            cadena_resultado = cadena_resultado.trim() + ch[i];
         }
-        cadena_resultado += "\n";
+        cadena_resultado =  cadena_resultado.trim() + "\n";
     }
 
     //Cuando se detecta el final de un elemento <libro>,
