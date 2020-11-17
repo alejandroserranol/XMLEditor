@@ -17,6 +17,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class Formulario extends javax.swing.JFrame {
     
     DOM gesDOM = new DOM();
+    SAX gesSAX = new SAX();
 
     /**
      * Creates new form Formulario
@@ -65,6 +66,7 @@ public class Formulario extends javax.swing.JFrame {
         ficherosXML = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jBtnDOM = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         jLabel6.setText("Título nuevo");
 
@@ -162,6 +164,14 @@ public class Formulario extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jBtnDOM);
+
+        jMenuItem1.setText("Abrir SAX");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
 
         ficherosXML.add(jMenu1);
 
@@ -331,7 +341,9 @@ public class Formulario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMostrarDOMActionPerformed
 
     private void jBtnMostrarSAXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMostrarSAXActionPerformed
-        // TODO add your handling code here:
+        
+        jTextAreaSalida.setText(gesSAX.recorrerSAX());
+        
     }//GEN-LAST:event_jBtnMostrarSAXActionPerformed
 
     private void jBtnMostrarJAXBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMostrarJAXBActionPerformed
@@ -363,6 +375,32 @@ public class Formulario extends javax.swing.JFrame {
         gesDOM.modificar_DOM(jTextFieldTituloAntiguo.getText(), jTextFieldTituloNuevo.getText());
         
     }//GEN-LAST:event_jBtnModificarActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        
+        File ficheroXML = null;
+        ficheroXML = dialogoSeleccionarFichero();
+            
+        if(ficheroXML == null){
+            this.jLabelMensaje.setText("Fichero no seleccionado.");
+        } else {
+            if(gesSAX.abrir_XML_SAX(ficheroXML)==-1){
+                this.jLabelMensaje.setText("Error al crear el objeto DOM.");
+                this.btnMostrarDOM.setEnabled(false);
+                this.jBtnAnnadir.setEnabled(false);
+                this.jBtnGuardarDOM.setEnabled(false);
+                this.jBtnModificar.setEnabled(false);
+            } else {
+                this.jLabelMensaje.setText("¡Objeto DOM creado!");
+                this.btnMostrarDOM.setEnabled(false);
+                this.jBtnMostrarSAX.setEnabled(true);
+                this.jBtnAnnadir.setEnabled(false);
+                this.jBtnGuardarDOM.setEnabled(false);
+                this.jBtnModificar.setEnabled(false);
+            }
+        }
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -420,6 +458,7 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTituloAntiguo;
     private javax.swing.JLabel jLabelTituloNuevo;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaSalida;
     private javax.swing.JTextField jTextFieldAnno;
