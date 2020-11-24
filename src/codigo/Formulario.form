@@ -22,12 +22,20 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAbrirjBtnDOMActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="jBtnSAX">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Abrir SAX"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnSAXActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jBtnJAXB">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Abrir JAXB"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnJAXBActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -136,7 +144,7 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnMostrarDOM" min="-2" pref="169" max="-2" attributes="0"/>
+                      <Component id="jBtnMostrarDOM" min="-2" pref="169" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jBtnMostrarSAX" min="-2" pref="169" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -154,7 +162,7 @@
               <Component id="jLabelMensaje" min="-2" pref="18" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnMostrarDOM" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtnMostrarDOM" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jBtnMostrarSAX" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jBtnMostrarJAXB" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -250,13 +258,13 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnMostrarDOM">
+    <Component class="javax.swing.JButton" name="jBtnMostrarDOM">
       <Properties>
         <Property name="text" type="java.lang.String" value="Mostrar contenido DOM"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMostrarDOMActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnMostrarDOMActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jBtnMostrarSAX">

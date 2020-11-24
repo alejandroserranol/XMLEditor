@@ -18,6 +18,7 @@ public class Formulario extends javax.swing.JFrame {
     
     DOM gesDOM = new DOM();
     SAX gesSAX = new SAX();
+    JAXB gesJAXB = new JAXB();
 
     /**
      * Creates new form Formulario
@@ -39,7 +40,7 @@ public class Formulario extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaSalida = new javax.swing.JTextArea();
         jLabelMensaje = new javax.swing.JLabel();
-        btnMostrarDOM = new javax.swing.JButton();
+        jBtnMostrarDOM = new javax.swing.JButton();
         jBtnMostrarSAX = new javax.swing.JButton();
         jBtnMostrarJAXB = new javax.swing.JButton();
         jLabelTitulo = new javax.swing.JLabel();
@@ -66,7 +67,8 @@ public class Formulario extends javax.swing.JFrame {
         ficherosXML = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jBtnDOM = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jBtnSAX = new javax.swing.JMenuItem();
+        jBtnJAXB = new javax.swing.JMenuItem();
 
         jLabel6.setText("Título nuevo");
 
@@ -81,11 +83,11 @@ public class Formulario extends javax.swing.JFrame {
         jLabelMensaje.setMinimumSize(new java.awt.Dimension(73, 23));
         jLabelMensaje.setPreferredSize(new java.awt.Dimension(73, 23));
 
-        btnMostrarDOM.setText("Mostrar contenido DOM");
-        btnMostrarDOM.setEnabled(false);
-        btnMostrarDOM.addActionListener(new java.awt.event.ActionListener() {
+        jBtnMostrarDOM.setText("Mostrar contenido DOM");
+        jBtnMostrarDOM.setEnabled(false);
+        jBtnMostrarDOM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostrarDOMActionPerformed(evt);
+                jBtnMostrarDOMActionPerformed(evt);
             }
         });
 
@@ -165,13 +167,21 @@ public class Formulario extends javax.swing.JFrame {
         });
         jMenu1.add(jBtnDOM);
 
-        jMenuItem1.setText("Abrir SAX");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jBtnSAX.setText("Abrir SAX");
+        jBtnSAX.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jBtnSAXActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(jBtnSAX);
+
+        jBtnJAXB.setText("Abrir JAXB");
+        jBtnJAXB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnJAXBActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jBtnJAXB);
 
         ficherosXML.add(jMenu1);
 
@@ -240,7 +250,7 @@ public class Formulario extends javax.swing.JFrame {
                                 .addComponent(jBtnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(44, 44, 44))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnMostrarDOM, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBtnMostrarDOM, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jBtnMostrarSAX, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -254,7 +264,7 @@ public class Formulario extends javax.swing.JFrame {
                 .addComponent(jLabelMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnMostrarDOM)
+                    .addComponent(jBtnMostrarDOM)
                     .addComponent(jBtnMostrarSAX)
                     .addComponent(jBtnMostrarJAXB))
                 .addGap(17, 17, 17)
@@ -319,13 +329,17 @@ public class Formulario extends javax.swing.JFrame {
         } else {
             if(gesDOM.abrir_XML_DOM(ficheroXML)==-1){
                 this.jLabelMensaje.setText("Error al crear el objeto DOM.");
-                this.btnMostrarDOM.setEnabled(false);
+                this.jBtnMostrarDOM.setEnabled(false);
+                this.jBtnMostrarSAX.setEnabled(false);
+                this.jBtnMostrarJAXB.setEnabled(false);
                 this.jBtnAnnadir.setEnabled(false);
                 this.jBtnGuardarDOM.setEnabled(false);
                 this.jBtnModificar.setEnabled(false);
             } else {
                 this.jLabelMensaje.setText("¡Objeto DOM creado!");
-                this.btnMostrarDOM.setEnabled(true);
+                this.jBtnMostrarDOM.setEnabled(true);
+                this.jBtnMostrarSAX.setEnabled(false);
+                this.jBtnMostrarJAXB.setEnabled(false);
                 this.jBtnAnnadir.setEnabled(true);
                 this.jBtnGuardarDOM.setEnabled(true);
                 this.jBtnModificar.setEnabled(true);
@@ -334,20 +348,22 @@ public class Formulario extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnAbrirjBtnDOMActionPerformed
 
-    private void btnMostrarDOMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarDOMActionPerformed
+    private void jBtnMostrarDOMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMostrarDOMActionPerformed
         
-        jTextAreaSalida.setText(gesDOM.recorrer_DOM_y_mostrar());
+        this.jTextAreaSalida.setText(gesDOM.recorrer_DOM_y_mostrar());
         
-    }//GEN-LAST:event_btnMostrarDOMActionPerformed
+    }//GEN-LAST:event_jBtnMostrarDOMActionPerformed
 
     private void jBtnMostrarSAXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMostrarSAXActionPerformed
         
-        jTextAreaSalida.setText(gesSAX.recorrerSAX());
+        this.jTextAreaSalida.setText(gesSAX.recorrerSAX());
         
     }//GEN-LAST:event_jBtnMostrarSAXActionPerformed
 
     private void jBtnMostrarJAXBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMostrarJAXBActionPerformed
-        // TODO add your handling code here:
+        
+        this.jTextAreaSalida.setText(gesJAXB.recorrerJAXB());
+        
     }//GEN-LAST:event_jBtnMostrarJAXBActionPerformed
 
     private void jBtnAnnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAnnadirActionPerformed
@@ -376,7 +392,7 @@ public class Formulario extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jBtnModificarActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jBtnSAXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSAXActionPerformed
         
         File ficheroXML = null;
         ficheroXML = dialogoSeleccionarFichero();
@@ -385,22 +401,54 @@ public class Formulario extends javax.swing.JFrame {
             this.jLabelMensaje.setText("Fichero no seleccionado.");
         } else {
             if(gesSAX.abrir_XML_SAX(ficheroXML)==-1){
-                this.jLabelMensaje.setText("Error al crear el objeto DOM.");
-                this.btnMostrarDOM.setEnabled(false);
+                this.jLabelMensaje.setText("Error al crear el objeto SAX.");
+                this.jBtnMostrarDOM.setEnabled(false);
+                this.jBtnMostrarSAX.setEnabled(false);
+                this.jBtnMostrarJAXB.setEnabled(false);
                 this.jBtnAnnadir.setEnabled(false);
                 this.jBtnGuardarDOM.setEnabled(false);
                 this.jBtnModificar.setEnabled(false);
             } else {
-                this.jLabelMensaje.setText("¡Objeto DOM creado!");
-                this.btnMostrarDOM.setEnabled(false);
+                this.jLabelMensaje.setText("¡Objeto SAX creado!");
+                this.jBtnMostrarDOM.setEnabled(false);
                 this.jBtnMostrarSAX.setEnabled(true);
+                this.jBtnMostrarJAXB.setEnabled(false);
                 this.jBtnAnnadir.setEnabled(false);
                 this.jBtnGuardarDOM.setEnabled(false);
                 this.jBtnModificar.setEnabled(false);
             }
         }
         
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_jBtnSAXActionPerformed
+
+    private void jBtnJAXBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnJAXBActionPerformed
+        
+        File ficheroXML = null;
+        ficheroXML = dialogoSeleccionarFichero();
+            
+        if(ficheroXML == null){
+            this.jLabelMensaje.setText("Fichero no seleccionado.");
+        } else {
+            if(gesJAXB.abrir_XML_JAXB(ficheroXML)==-1){
+                this.jLabelMensaje.setText("Error al crear el objeto JAXB.");
+                this.jBtnMostrarDOM.setEnabled(false);
+                this.jBtnMostrarSAX.setEnabled(false);
+                this.jBtnMostrarJAXB.setEnabled(false);
+                this.jBtnAnnadir.setEnabled(false);
+                this.jBtnGuardarDOM.setEnabled(false);
+                this.jBtnModificar.setEnabled(false);
+            } else {
+                this.jLabelMensaje.setText("¡Objeto JAXB creado!");
+                this.jBtnMostrarDOM.setEnabled(false);
+                this.jBtnMostrarSAX.setEnabled(false);
+                this.jBtnMostrarJAXB.setEnabled(true);
+                this.jBtnAnnadir.setEnabled(false);
+                this.jBtnGuardarDOM.setEnabled(false);
+                this.jBtnModificar.setEnabled(false);
+            }
+        }
+        
+    }//GEN-LAST:event_jBtnJAXBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -438,14 +486,16 @@ public class Formulario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnMostrarDOM;
     private javax.swing.JMenuBar ficherosXML;
     private javax.swing.JButton jBtnAnnadir;
     private javax.swing.JMenuItem jBtnDOM;
     private javax.swing.JButton jBtnGuardarDOM;
+    private javax.swing.JMenuItem jBtnJAXB;
     private javax.swing.JButton jBtnModificar;
+    private javax.swing.JButton jBtnMostrarDOM;
     private javax.swing.JButton jBtnMostrarJAXB;
     private javax.swing.JButton jBtnMostrarSAX;
+    private javax.swing.JMenuItem jBtnSAX;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelAnno;
     private javax.swing.JLabel jLabelAutor;
@@ -458,7 +508,6 @@ public class Formulario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTituloAntiguo;
     private javax.swing.JLabel jLabelTituloNuevo;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaSalida;
     private javax.swing.JTextField jTextFieldAnno;
